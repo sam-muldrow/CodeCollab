@@ -1,13 +1,15 @@
-# chat-example
+# CodeCollab!
+CodeCollab is a real time code editor for html and javascript with real time rendering.
+<br>
+https://cucumber-cactus2.herokuapp.com/homepage.html
+# Tech Used:
+Node.js, Firebase, HTML/CSS, Javascript, Semantic, Auth0
+# Features:
+### 3rd Party and Secure auth0 logins:
+![Alt Text](https://media.giphy.com/media/8qx7oITqVVkAzzOuEh/giphy.gif)
+### Sharable invite Codes:
+![](https://thumbs.gfycat.com/BouncySpeedyAsianpiedstarling-size_restricted.gif)
+### RealTime Code Editing:
+![](https://thumbs.gfycat.com/SphericalBleakAcornwoodpecker-size_restricted.gif)
 
-This is the source code for a very simple chat example used for
-the [Getting Started](http://socket.io/get-started/chat/) guide
-of the Socket.IO website.
 
-Please refer to it to learn how to run this application.
-
-You can also spin up a free Heroku dyno to test it out:
-
-[![Deploy](https://www.herokucdn.com/deploy/button.png)](https://heroku.com/deploy?template=https://github.com/socketio/chat-example)
-
-Besides, the application is deployed on [Now](https://zeit.co/now): https://socketio-chat-example.now.sh/
