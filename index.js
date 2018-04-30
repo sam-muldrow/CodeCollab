@@ -26,10 +26,19 @@ app.get('/', function(req, res){
 app.get('/AuthPage.html', function(req, res){
   res.sendFile(__dirname + '/AuthPage.html');
 });
+app.get('/homepage.html', function(req, res){
+  res.sendFile(__dirname + '/homepage.html');
+});
 app.get('/app.js', function(req, res){
   res.sendFile(__dirname + '/app.js');
 });
+app.get('/particles.js', function(req, res){
+  res.sendFile(__dirname + '/particles.js');
+});
+app.use('/js', express.static(path.join(__dirname, 'js')))
+app.use('/css', express.static(path.join(__dirname, 'css')))
 app.use('/semantic', express.static(path.join(__dirname, 'semantic')))
+app.use('/images', express.static(path.join(__dirname, 'images')))
 app.get('/themes/prism-atom-dark.css', function(req, res){
   res.sendFile(__dirname + '/themes/prism-atom-dark.css');
 });

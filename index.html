@@ -296,48 +296,50 @@ pre div:before {
       	<div class="col span_3_of_3">
           <nav class="navbar navbar-default">
             <div class="container-fluid">
-              <div class="navbar-header">
+              <div class="navbar-header ">
 
-                <button id="btn-home-view" class="btn btn-primary btn-margin">
+                <div style=" position: absolute; right:  5%; top: 1%;">
+
+                  <button id="btn-exitUser"  class="ui inverted purple button">
+                    Back To Your Code
+                  </button>
+                  <div class="ui mini action input" >
+                    <input type="text" id="input-joinUser" placeholder="Enter Join Code">
+                    <button id="btn-joinUser" class="ui button">Join</button>
+                  </div>
+                </div>
+
+                <div style=" position: absolute; left: 1%; top: 1%;" >
+                <img class="ui avatar image" src="/images/Design.svg">
+                <button id="btn-home-view" class="ui inverted yellow button">
                     Home
                 </button>
 
-                <button id="btn-login" class="btn btn-primary btn-margin">
+                <button id="btn-login" class="ui inverted olive button">
                     Log In
                 </button>
 
-                <button id="btn-logout" class="btn btn-primary btn-margin">
+                <button id="btn-logout" class="ui inverted olive button">
                     Log Out
                 </button>
-                <button id="btn-getCode">
+                <button id="btn-getCode" class="ui inverted blue button" >
                   Get Your Join Code
                 </button>
-                <button id="btn-joinUser">
-                  Join Another User
-                </button>
-                <button id="btn-exitUser">
-                  Back To Your Code
-                </button>
-                <input id="input-joinUser" placeholder="Enter Code Here">
-                </input>
-                <p id="joinCode"></p>
+              </div>
+
+
+
 
 
               </div>
             </div>
           </nav>
       	</div>
+        <div style="height: 90%; margin-left: 4%; margin-top: 3%;"; >
       	<div class="col span_2_of_3" >
           <div class="ui divided items" id="collaboratorList">
                 <div class="ui small header" style="color:#98DD79;">Collaborators:</div>
-                <div class="item">
-                  <div class="ui tiny image">
-                    <img  style="border-Radius: 50%;"src="https://avatars0.githubusercontent.com/u/24755590?v=4">
-                  </div>
-                  <div class="left aligned content" style="font-size: 20px; text-overflow: ellipsis;">
-                    Sal-Muldrow
-                  </div>
-                </div>
+
           </div>
       	</div>
       	<div class="col span_1_of_3">
@@ -351,14 +353,19 @@ pre div:before {
          </iframe>
       	</div>
       </div>
+      </div>
 
 
-      <main class="container">
+
+      <main class="container" style>
         <!-- home view -->
+
         <div id="home-view">
           <h4></h4>
         </div>
-
+        <br>
+        <br>
+        <p id="joinCode"></p>
       </main>
 
 
@@ -385,7 +392,7 @@ pre div:before {
         var element = document.getElementById('div');
         var joinCodeElement = document.getElementById('joinCode');
         element.focus();
-        AddUsers();
+
 
         var codeBtn = document.getElementById('btn-getCode');
         var joinBtn = document.getElementById('btn-joinUser');
@@ -459,7 +466,7 @@ pre div:before {
         element.addEventListener('input', UpdateFunc);
         function AddCollabUser(User, userPicture){
           var collaboratorList = document.getElementById('collaboratorList');
-          collaboratorList.innerHTML = collaboratorList.innerHTML + ' <div class="item"> <div class="ui tiny image"> <img style="border-Radius: 50%;"src="'+ userPicture +'"> </div> <div class="left aligned content" style="font-size: 20px; text-overflow: ellipsis;">' + User + '</div> ';
+           collaboratorList.innerHTML = collaboratorList.innerHTML + ' <div class="item">  <div class="left aligned content" style="font-size: 20px; text-overflow: ellipsis;">' + User + '</div> ';
         }
         function UpdateFunc(e) {
 

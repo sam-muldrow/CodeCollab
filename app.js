@@ -120,11 +120,11 @@ window.addEventListener('load', function() {
 
 
 
-            //displayProfile();
+
           }
         });
       } else {
-        //displayProfile();
+
       }
 
 
@@ -137,30 +137,49 @@ window.addEventListener('load', function() {
 
     // Initialize Firebase
     var config = {
-      apiKey: "",
-      authDomain: "",
-      databaseURL: "",
-      projectId: "e",
-      storageBucket: "",
-      messagingSenderId: ""
+      apiKey: "AIzaSyA8cNideq63znns2pIhThFUQr5p1wv3vHA",
+      authDomain: "codecollab-8304e.firebaseapp.com",
+      databaseURL: "https://codecollab-8304e.firebaseio.com",
+      projectId: "codecollab-8304e",
+      storageBucket: "codecollab-8304e.appspot.com",
+      messagingSenderId: "765863585188"
     };
     firebase.initializeApp(config);
     var database = firebase.database();
     var element = document.getElementById('div');
     element.addEventListener('input', UpdateFunc);
+
     function UpdateFunc(e) {
       console.log(userProfile);
       var profile = userProfile;
       if(localStorage.getItem('UserNickName')){
         firebase.database().ref(`users/${localStorage.getItem('UserNickName')}/Code`).set({
           ProjectCode: element.innerHTML,
+          authName:  localStorage.getItem('UserNickName')
 
-        });
+          });
+
+          firebase.database().ref(`users/${localStorage.getItem('UserNickName')}/Collaborators`).once("value", snapshot => {
+
+             //AddCollabUser(snapshot.val());
+             console.log(snapshot.val());
+          });
+          firebase.database().ref(`users/${localStorage.getItem('UserNickName')}/Collaborators/${profile.nickname}`).set({
+            authName:  localStorage.getItem('UserNickName')
+          });
       }else{
         firebase.database().ref(`users/${profile.nickname}/Code`).set({
           ProjectCode: element.innerHTML,
+          authName: profile.nickname
 
         });
+        firebase.database().ref(`users/${profile.nickname}/Collaborators`).once("value", snapshot => {
+
+          var collaboratorList = document.getElementById('collaboratorList');
+           collaboratorList.innerHTML = collaboratorList.innerHTML + ' <div class="item">  <div class="left aligned content" style="font-size: 20px; text-overflow: ellipsis;">' + snapshot.val()[0] + '</div> ';
+           console.log(snapshot.val());
+        });
+
       }
 
 
